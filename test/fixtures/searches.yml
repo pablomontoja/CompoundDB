@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  keywords: MyString
+  formula: MyString
+  min_mass: 1.5
+  max_mass: 1.5
+  molecule: MyText
+
+two:
+  keywords: MyString
+  formula: MyString
+  min_mass: 1.5
+  max_mass: 1.5
+  molecule: MyText

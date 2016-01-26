@@ -1,0 +1,28 @@
+div.container {
+	padding: 10px;
+} 
+
+div.devise {
+	width: 500px;
+}
+
+div.panel {
+    height: 450px;
+    text-align: center;
+} 
+.panel img {
+   height: 90%;
+}
+
+div.pagination {
+font-size: 15px;
+}
+
+em.current {
+    font-size: 25px;
+}
+
+td.name {
+	width: 18%;
+	word-wrap: break-word;
+}

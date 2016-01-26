@@ -1,0 +1,79 @@
+
+<table style="width:50%">
+  <tr>
+    <td>
+<p>
+  <strong>Name:</strong>
+  <%= @compound.name %>
+</p>
+
+<p>
+  <strong>Molecular formula:</strong>
+  <%= get_formula(@compound.molecular_formula).to_html.html_safe %>
+</p>
+
+<p>
+  <strong>Molar mass:</strong>
+  <%= @compound.molar_mass.round(4) %>
+</p>
+
+<p>
+  <strong>Cas:</strong>
+  <%= @compound.cas %>
+</p>
+<p>
+  <strong>Amount:</strong>
+  <%= @compound.amount %>
+</p>
+
+<p>
+  <strong>Shelf:</strong>
+  <%= @compound.shelf %>
+</p>
+
+<p>
+  <strong>Room number:</strong>
+  <%= @compound.room_number %>
+</p>
+
+<p>
+  <strong>Created by:</strong>
+  <%= get_user_name(@compound.created_by) %>
+</p>
+
+<p>
+  <strong>Last update:</strong>
+  <%= get_user_name(@compound.edited_by) %>
+</p>
+
+<p>
+  <strong>Additional info:</strong>
+<%= @compound.additional_info %>
+</p>
+
+</td>
+
+<td>
+<p>
+  <strong>Structure:</strong>
+  <p>
+    <script>
+      var myCanvas = new ChemDoodle.ViewerCanvas('id', 150, 150);
+      myCanvas.emptyMessage = 'No Data Loaded!';
+      myCanvas.loadMolecule(ChemDoodle.readMOL(<%== "'" + @compound.structure.inspect.html_safe + "'" %>));
+    </script>    
+  </p>
+
+</p>  
+</td>
+  </tr>
+</table>
+
+
+
+
+
+
+
+<%= link_to 'Edit', edit_compound_path(@compound), class: "button secondary small radius" %> |
+<%= link_to 'Back', compounds_path, class: "button secondary small radius" %>

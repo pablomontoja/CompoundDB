@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  molecular_formula: MyString
+  molar_mass: 1.5
+  cas: MyString
+  structure: MyText
+  amount: MyString
+  shelf: MyString
+  room_number: MyString
+
+two:
+  name: MyString
+  molecular_formula: MyString
+  molar_mass: 1.5
+  cas: MyString
+  structure: MyText
+  amount: MyString
+  shelf: MyString
+  room_number: MyString

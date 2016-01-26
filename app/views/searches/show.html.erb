@@ -1,0 +1,64 @@
+<h1>Search Results</h1>
+
+<p><%= link_to 'Back', edit_search_path(@search), class: "button secondary small radius" %></p>
+
+<% if @search.search_compounds.empty? %>
+	
+<p>No Records Found</p>
+
+<% else %>
+
+<table style="width:100%">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Molecular formula</th>
+      <th>Molar mass</th>
+      <th>Cas</th>
+      <th>Structure</th>
+      <th>Amount</th>
+      <th>Shelf</th>
+      <th>Room number</th>
+      <th>Info</th>
+    <% if current_user.editor? || current_user.admin? %> 
+      <th colspan="3"></th>
+    <% end %> 
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @search.search_compounds.each do |compound| %>
+      <tr>
+        <td><%= compound.name %></td>
+        <td><%= get_formula(compound.molecular_formula).to_html.html_safe %></td>
+        <td><%= compound.molar_mass %></td>
+        <td><%= compound.cas %></td>
+        <td>
+    <script>
+      var myCanvas = new ChemDoodle.ViewerCanvas('id<%= compound.id %>', 150, 150);
+      myCanvas.emptyMessage = 'No Data Loaded!';
+      myCanvas.loadMolecule(ChemDoodle.readMOL(<%== "'" + compound.structure.inspect.html_safe + "'" %>));
+    </script>
+        </td>
+        <td><%= compound.amount %></td>
+        <td><%= compound.shelf %></td>
+        <td><%= compound.room_number %></td>
+        <td>Created by: <b><%= get_user_name(compound.created_by) %></b></br>
+            Last update: <b><%= get_user_name(compound.edited_by) %></b>
+        </td> 
+      <% if current_user.editor? || current_user.admin? %>  
+        <td><%= link_to 'Show', compound %></br>
+            <%= link_to 'Edit', edit_compound_path(compound) %></br>
+      <% end %>      
+      <% if current_user.admin? %>
+        <%= link_to 'Destroy', compound, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %> 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<% end %>
+
+<p><%= link_to 'Back', edit_search_path(@search), class: "button secondary small radius" %></p>

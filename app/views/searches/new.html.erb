@@ -1,0 +1,58 @@
+<h1>Compound Search</h1>
+
+<%= form_for @search do |f| %>
+
+
+
+ <table style="width:70%">
+  <tr>
+    <td>
+    <div class="field">
+    <%= f.label 'Name' %><br>
+    <%= f.text_field :keywords, :value => params[:keywords] %>
+  </div>
+  <div class="field">
+    <%= f.label :formula %><br>
+    <%= f.text_field :formula, :value => params[:formula] %>
+  </div>
+  <div class="field">
+    <%= f.label :min_mass %><br>
+    <%= f.text_field :min_mass, size: 10 %>
+  </div>
+  <div class="field">
+    <%= f.label :max_mass %><br>
+    <%= f.text_field :max_mass, size: 10 %>
+  </div>
+   <div class="field">
+    <%= f.label :cas_number %><br>
+    <%= f.text_field :cas_number %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Search', :class => 'button small radius' %>
+  </div>
+      
+    </td>
+    <td>
+       <div class="field">
+    <%= f.label :structure %><br>
+
+    <script>
+  ChemDoodle.ELEMENT['H'].jmolColor = 'black';
+  ChemDoodle.ELEMENT['S'].jmolColor = '#B9A130';
+  var sketcher = new ChemDoodle.SketcherCanvas('ramka', 550, 500,{useServices:false, oneMolecule:true});
+  sketcher.specs.atoms_displayTerminalCarbonLabels_2D = true;
+  sketcher.specs.atoms_useJMOLColors = true;
+  sketcher.specs.bonds_clearOverlaps_2D = true;
+  sketcher.specs.bonds_overlapClearWidth_2D = 2;
+  sketcher.repaint();
+    </script>
+    
+    <%= f.hidden_field :molecule %>
+  </div> 
+    </td>
+  </tr>
+</table>
+
+<% end %>
+
+<p><%= link_to 'All Compounds', compounds_path %></p>

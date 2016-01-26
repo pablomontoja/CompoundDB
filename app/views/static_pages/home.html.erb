@@ -1,0 +1,10 @@
+<% provide(:title, "Home") %>
+
+<div class="row">
+  <div class="small-6 column" onclick="location.href='<%= url_for :controller => '/compounds' %>';" style="cursor:pointer;">
+    <div class="panel">
+        <h3><b>CompoundDB</b></h3>
+        <%= image_tag("compound.png", :alt => "CompoundDB") %>
+    </div>
+  </div>
+</div>

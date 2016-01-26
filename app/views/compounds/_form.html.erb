@@ -1,0 +1,81 @@
+<%= form_for(@compound) do |f| %>
+  <% if @compound.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@compound.errors.count, "error") %> prohibited this compound from being saved:</h2>
+
+      <ul>
+      <% @compound.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <table style="width:100%">
+  <tr>
+    <td>
+    <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :molecular_formula %><br>
+    <%= f.text_field :molecular_formula %>
+  </div>
+  <div class="field">
+    <%= f.label :molar_mass %><br>
+    <% if current_page?(controller: 'compounds', action: 'new') %>
+    <%= f.text_field :molar_mass %>
+    <% else %>
+    <%= f.text_field :molar_mass,   :value => @compound.molar_mass.round(4) %>
+    <% end %>
+    </div>
+  <div class="field">
+    <%= f.label :cas %><br>
+    <%= f.text_field :cas %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :shelf %><br>
+    <%= f.text_field :shelf %>
+  </div>
+  <div class="field">
+    <%= f.label :room_number %><br>
+    <%= f.text_field :room_number %>
+  </div>
+  <div class="field">
+    <%= f.label :additional_info %><br>
+    <%= f.text_field :additional_info %>
+  </div>
+    <div class="actions">
+    <%= f.submit :class => 'button small radius' %>
+  </div>
+      
+    </td>
+    <td>
+       <div class="field">
+    <%= f.label :structure %><br>
+
+    <script>
+  ChemDoodle.ELEMENT['H'].jmolColor = 'black';
+  ChemDoodle.ELEMENT['S'].jmolColor = '#B9A130';
+  var sketcher = new ChemDoodle.SketcherCanvas('ramka', 550, 500,{useServices:false, oneMolecule:true});
+  sketcher.loadMolecule(ChemDoodle.readMOL(<%== "'" + @compound.structure.inspect.html_safe + "'" %>));
+  sketcher.specs.atoms_displayTerminalCarbonLabels_2D = true;
+  sketcher.specs.atoms_useJMOLColors = true;
+  sketcher.specs.bonds_clearOverlaps_2D = true;
+  sketcher.specs.bonds_overlapClearWidth_2D = 2;
+  sketcher.repaint();
+    </script>
+    
+    <%= f.hidden_field :structure %>
+  </div> 
+    </td>
+  </tr>
+</table>
+
+ 
+<% end %>

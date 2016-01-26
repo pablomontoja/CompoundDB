@@ -1,0 +1,9 @@
+#!/bin/bash
+
+file="mol.sdf"
+f=$(cat $file)
+matchmol - < $f
+
+echo \"$input\"|$commandLine
+
+"\n\\\$\\\$\\\$\\\$\n"

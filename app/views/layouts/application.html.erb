@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "CompoundDB" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="fixed">
+        <nav class="top-bar" data-topbar role="navigation">
+          <ul class="title-area">
+            <li class="name"><h1><%= link_to "Home", root_path %></h1></li>
+          </ul>
+
+      <section class="top-bar-section">
+          <ul class="left">
+            <li><%= link_to "CompoundDB", compounds_path %></li>
+          </ul>
+          <ul class="left">
+            <li><%= link_to "Compound Search", new_search_path %></li>
+          </ul>
+          <ul class="right">
+            <li><%= link_to "Help", static_pages_help_path %></li>
+          </ul>
+
+
+<% if user_signed_in? %>
+<ul class="right"><li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li></ul>
+<ul class="right"><li><%= link_to 'Edit profile', edit_user_registration_path %></li></ul>
+<ul class="right"><li><%= link_to "Hello #{current_user.username}", edit_user_registration_path %></li></ul>
+<% else %>
+<ul class="right"><li><%= link_to "Sign up", new_user_registration_path %></li></ul>
+<ul class="right"><li><%= link_to "Login", new_user_session_path %></li></ul>
+<% end %>
+
+
+
+      </section>
+      
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+
+      <%= yield %>
+    </div>
+
+  </body>
+</html>

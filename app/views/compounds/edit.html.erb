@@ -1,0 +1,8 @@
+<h3>Editing Compound</h3>
+
+<% if current_user.admin? || current_user.editor? %>  
+<%= render 'form' %>
+<% end %>  
+
+<%= link_to 'Show', @compound, class: "button secondary small radius"%> |
+<%= link_to 'Back', compounds_path, class: "button secondary small radius" %>
