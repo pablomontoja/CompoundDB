@@ -1,28 +1,24 @@
-== README
+== CompoundDB
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Compound Database
 
-Things you may want to cover:
+CompoundDB is a very simple Ruby on Rails application used to store information on chemicals in laboratory.
 
-* Ruby version
+== REQUIREMENTS
 
-* System dependencies
+Matchmol is needed to search compounds in the database. It must be instaled in your server. 
+http://merian.pch.univie.ac.at/~nhaider/cheminf/cmmm.html
 
-* Configuration
+Openbabel is needed to calculate molecular formula and molar mass.
+in Ubuntu: sudo apt-get install openbabel
 
-* Database creation
+== INSTALLATION
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+git clone git@github.com:pablomontoja/CompoundDB.git
+bundle install
+rake db:create
+rake db:migrate
+rails server
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+

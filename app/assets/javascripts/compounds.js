@@ -7,6 +7,7 @@ $("form").submit(function() {
   });
 
 
+/* validation */
             $(".new_compound").validate({
             	rules: {
                   "compound[name]": "required",
@@ -23,15 +24,14 @@ $("form").submit(function() {
                 	"compound[room_number]": "Please enter room number"
                 }
             });
+/* validation */
     
-
+/* getinfo method */
 $( "#getinfo" ).click(function() {
 
 var mol = sketcher.getMolecule();
 var molFile = ChemDoodle.writeMOL(mol);
 var url = '/compounds/getinfo' ;
-
-console.log(molFile)
 
   $.ajax({
    	url: url,
@@ -43,7 +43,8 @@ console.log(molFile)
     		}
   });
 
-
 });
+/* getinfo method */
+
 
 });
