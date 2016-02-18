@@ -1,6 +1,17 @@
 class CompoundsController < ApplicationController
   before_action :set_compound, only: [:show, :edit, :update, :destroy]
 
+
+  def getinfo
+    File.write("tmp/structures/fileinfo.mol", params[:mol] )
+    
+    data = %x( obprop tmp/structures/fileinfo.mol ).split("\n")
+    hash = Hash["#{data[1].split.itself[0]}": data[1].split.itself[1], 
+         "#{data[2].split.itself[0]}": data[2].split.itself[1], 
+         "#{data[3].split.itself[0]}": data[3].split.itself[1]]
+    render :json => hash.to_json
+  end
+
   # GET /compounds
   # GET /compounds.json
   def index

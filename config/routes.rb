@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  get 'compounds/getinfo' => 'compounds#getinfo'
+
   get 'searches/new'
 
   get 'searches/create'

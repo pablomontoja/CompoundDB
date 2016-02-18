@@ -12,9 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.validate
+//= require jquery.validate.additional-methods
+//= require jquery.validate.localization/messages_pl
 //= require foundation
 //= require ChemDoodleWeb
 //= require ChemDoodleWeb-uis
+//= require compounds
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

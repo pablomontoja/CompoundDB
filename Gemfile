@@ -25,6 +25,7 @@ gem 'foundation-rails'
 gem 'will_paginate'
 gem 'chemistry_rails'
 gem 'devise'
+gem 'jquery-validation-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
