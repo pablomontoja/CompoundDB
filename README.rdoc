@@ -15,9 +15,13 @@ in Ubuntu: sudo apt-get install openbabel
 == INSTALLATION
 
 git clone git@github.com:pablomontoja/CompoundDB.git
+
 bundle install
+
 rake db:create
+
 rake db:migrate
+
 rails server
 
 
