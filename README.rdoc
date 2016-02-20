@@ -38,6 +38,8 @@ git clone https://github.com/pablomontoja/CompoundDB.git
 
 cd CompoundDB
 
+mkdir tmp/structures/
+
 bundle install
 
 rake db:migrate
