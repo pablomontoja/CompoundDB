@@ -1,6 +1,6 @@
 == CompoundDB
 
-CompoundDB is a very simple Ruby on Rails application used to store information about chemicals in laboratory.
+CompoundDB is a very simple web-based application written in Ruby on Rails. It can be used to store information about chemicals in laboratory.
 
 == REQUIREMENTS
 
@@ -8,7 +8,6 @@ Matchmol is needed to search compounds in the database. It must be instaled in y
 http://merian.pch.univie.ac.at/~nhaider/cheminf/cmmm.html
 
 Openbabel is needed to calculate molecular formula and molar mass.
-in Ubuntu: sudo apt-get install openbabel
 
 == INSTALLATION (example based on Ubuntu Server 15.10)
 
