@@ -14,6 +14,8 @@ in Ubuntu: sudo apt-get install openbabel
 
 == INSTALLATION
 
+sudo apt-get install fp-compiler
+
 sudo apt-get install nodejs
 
 git clone https://github.com/pablomontoja/CompoundDB.git
