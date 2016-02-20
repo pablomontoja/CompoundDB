@@ -10,7 +10,7 @@ http://merian.pch.univie.ac.at/~nhaider/cheminf/cmmm.html
 Openbabel is needed to calculate molecular formula and molar mass.
 in Ubuntu: sudo apt-get install openbabel
 
-== INSTALLATION (example in Ubuntu Server 15.10)
+== INSTALLATION (example based on Ubuntu Server 15.10)
 
     /// matchmol installation ///
 
@@ -30,7 +30,7 @@ sudo ln checkmol matchmol
 
 sudo apt-get install openbabel
 
-    /// Installation of Ruby on Rails has been omitted. ///
+    /// Installation of Ruby on Rails has been omitted. You can do this, for example, using rvm ///
 
 sudo apt-get install nodejs
 
