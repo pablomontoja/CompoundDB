@@ -30,7 +30,7 @@ sudo ln checkmol matchmol
 
 sudo apt-get install openbabel
 
-## Installation of Ruby on Rails has been omitted. ##
+    /// Installation of Ruby on Rails has been omitted. ///
 
 sudo apt-get install nodejs
 
