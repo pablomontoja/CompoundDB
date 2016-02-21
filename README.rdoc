@@ -11,7 +11,7 @@ Openbabel is needed to calculate molecular formula and molar mass.
 
 == INSTALLATION (example based on Ubuntu Server 15.10)
 
-    / matchmol installation 
+    /// matchmol installation 
 
 sudo apt-get install fp-compiler
 
@@ -23,7 +23,7 @@ sudo cp checkmol /usr/local/bin
 
 cd /usr/local/bin
 
-sudo ln checkmol matchmol \
+sudo ln checkmol matchmol /
 
     /// openbabel installation ///
 
