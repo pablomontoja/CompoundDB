@@ -46,4 +46,16 @@ rake db:migrate
 rails server
 
 
+ /// the easiest method - use VirtualBox image ///
 
+I prepared Ubuntu Server image (.vdi container) that can be used to run my app. 
+
+You can download the image from:
+
+https://app.box.com/s/007yun4iju7ht4q9udvup0ffa4z2ewhf
+
+root password: admin
+
+user login: admin
+
+password password: admin
