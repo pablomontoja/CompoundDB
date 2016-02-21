@@ -58,7 +58,7 @@ root password: admin
 
 user login: admin
 
-password: admin
+user password: admin
 
 
 After login as admin go to /home/admin/rails/CompoundDB and run:
