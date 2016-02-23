@@ -55,15 +55,13 @@ rails server
 I prepared Ubuntu Server image (.vdi container) that can be used to run my app. You need to configure VirtualBox Port Forwarding (add port forwarding rule with Host Port=3000 and Guest Port=3000).
 
 You can download the image from:
-
+```
 https://app.box.com/s/007yun4iju7ht4q9udvup0ffa4z2ewhf
 
 root password: admin
-
 user login: admin
-
 user password: admin
-
+```
 
 After login as admin go to /home/admin/rails/CompoundDB and run:
 ```
