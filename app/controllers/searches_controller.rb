@@ -5,7 +5,7 @@ class SearchesController < ApplicationController
 
   def create
   	@search = Search.create(search_params)
-    File.write('tmp/structures/chk.mol', @search.molecule ) if @search.molecule.present?
+    File.write('structures/chk.mol', @search.molecule ) if @search.molecule.present?
   	redirect_to @search
   end
 
@@ -21,7 +21,7 @@ class SearchesController < ApplicationController
     @search = Search.find(params[:id])
      respond_to do |format|
       if @search.update(search_params)
-        File.write('tmp/structures/chk.mol', @search.molecule ) if @search.molecule.present?
+        File.write('structures/chk.mol', @search.molecule ) if @search.molecule.present?
         format.html { redirect_to @search, notice: 'Search was successfully updated.' }
         format.json { render :show, status: :ok, location: @search }
       else

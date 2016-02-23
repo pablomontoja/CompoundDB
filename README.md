@@ -41,7 +41,7 @@ git clone https://github.com/pablomontoja/CompoundDB.git
 
 cd CompoundDB
 
-mkdir tmp/structures/
+mkdir structures/
 
 bundle install
 

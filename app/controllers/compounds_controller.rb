@@ -3,9 +3,9 @@ class CompoundsController < ApplicationController
 
 
   def getinfo
-    File.write("tmp/structures/fileinfo.mol", params[:mol] )
+    File.write("structures/fileinfo.mol", params[:mol] )
     
-    data = %x( obprop tmp/structures/fileinfo.mol ).split("\n")
+    data = %x( obprop structures/fileinfo.mol ).split("\n")
     hash = Hash["#{data[1].split.itself[0]}": data[1].split.itself[1], 
          "#{data[2].split.itself[0]}": data[2].split.itself[1], 
          "#{data[3].split.itself[0]}": data[3].split.itself[1]]
@@ -39,7 +39,7 @@ class CompoundsController < ApplicationController
     respond_to do |format|
       if @compound.save
         @compound.update_attribute(:created_by, current_user.id)
-        File.write("tmp/structures/#{@compound.id}.mol", @compound.structure )
+        File.write("structures/#{@compound.id}.mol", @compound.structure )
         format.html { redirect_to @compound, notice: 'Compound was successfully created.' }
         format.json { render :show, status: :created, location: @compound }
       else
@@ -55,7 +55,7 @@ class CompoundsController < ApplicationController
     respond_to do |format|
       if @compound.update(compound_params)
         @compound.update_attribute(:edited_by, current_user.id)
-        File.write("tmp/structures/#{@compound.id}.mol", @compound.structure )
+        File.write("structures/#{@compound.id}.mol", @compound.structure )
         format.html { redirect_to @compound, notice: 'Compound was successfully updated.' }
         format.json { render :show, status: :ok, location: @compound }
       else
@@ -70,7 +70,7 @@ class CompoundsController < ApplicationController
   def destroy
     @compound.destroy
     respond_to do |format|
-      File.delete("tmp/structures/#{@compound.id}.mol") if File.exist?("tmp/structures/#{@compound.id}.mol")
+      File.delete("structures/#{@compound.id}.mol") if File.exist?("structures/#{@compound.id}.mol")
       format.html { redirect_to compounds_url, notice: 'Compound was successfully destroyed.' }
       format.json { head :no_content }
     end
